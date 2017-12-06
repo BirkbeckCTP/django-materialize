@@ -7,10 +7,6 @@ try:
 except ImportError:
     from distutils.core import setup
 
-with open('README.rst') as readme_file:
-    readme = readme_file.read()
-
-
 setup(
     name='django-materialize',
     version=1.0,
