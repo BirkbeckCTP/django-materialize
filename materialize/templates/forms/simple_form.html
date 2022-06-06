@@ -4,7 +4,7 @@
 
 {% for field in form %}
     <div class="row">
-        <div class="input-field col s12">
+	    <div class="{% if not field.field.widget.check_test %}input-field {% endif %}col s12">
 
             {{field|addcss:"validate"}}
             {% if not field|file_input %}

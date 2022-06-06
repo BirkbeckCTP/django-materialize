@@ -1,3 +1,4 @@
+from django.forms import CheckboxInput
 from django.template import loader
 from django import template
 register = template.Library()
@@ -27,6 +28,8 @@ def addcss(field, css):
         css = 'materialize-textarea'
     if type_input == 'CheckboxSelectMultiple':
         return render_checkbox(field)
+    if isinstance(field.field.widget, CheckboxInput):
+        return render_checkbox_input(field)
     if type_input == 'RadioSelect':
         return render_radio(field)
     if type_input == 'ClearableFileInput':
@@ -38,6 +41,14 @@ def addcss(field, css):
 
 def render_checkbox(field):
     t = loader.get_template('forms/render_checkbox.html')
+    c = {
+        'field': field,
+     }
+    html = t.render(c)
+    return html
+
+def render_checkbox_input(field):
+    t = loader.get_template('forms/render_checkbox_input.html')
     c = {
         'field': field,
      }
