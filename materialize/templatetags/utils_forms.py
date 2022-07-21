@@ -49,9 +49,12 @@ def render_checkbox(field):
 
 def render_checkbox_input(field):
     t = loader.get_template('forms/render_checkbox_input.html')
+    checked = field.field.widget.check_test(field.value())
     c = {
         'field': field,
-     }
+    }
+    if checked:
+        c["checked"] = True
     html = t.render(c)
     return html
 
