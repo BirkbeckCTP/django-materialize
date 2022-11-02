@@ -4,7 +4,7 @@ from django.template import loader
 from django import template
 register = template.Library()
 
-@register.assignment_tag
+@register.simple_tag
 def get_language():
     from django.conf import settings
     language = settings.LANGUAGE_CODE.split('-')
