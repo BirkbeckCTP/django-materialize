@@ -2,6 +2,9 @@
 Materialize for Django
 =====
 
+Deprecation note: This fork is no longer used for Janeway. Use
+[`kalwalkden/materialize-css-form`](https://github.com/kalwalkden/django-materializecss-form) instead.
+
 Materialize is a simple implementation of ``materializecss`` for Django.
 
 More information on ``materializecss``
